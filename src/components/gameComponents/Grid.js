@@ -12,9 +12,8 @@ const GridDiv = styled.div`
     grid-template-columns: ${props => props.repeat};
 `
 
-const Grid = () => {
-    const [numRows, setNumRows] = useState(25);
-    const [numCols, setNumCols] = useState(25);
+const Grid = ({numRows, numCols}) => {
+
 
     const [grid, setGrid] = useState(setEmptyGrid(numRows, numCols));
 
@@ -24,6 +23,10 @@ const Grid = () => {
                 rows.map((col, c) => (
                     <Cell
                         key={`${r}-${c}`}
+                        grid={grid}
+                        setGrid={setGrid}
+                        r={r}
+                        c={c}
                     />
                 ))
             )}
