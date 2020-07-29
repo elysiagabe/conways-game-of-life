@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 // utils
@@ -21,9 +21,14 @@ const ButtonsDiv = styled.div`
     margin: 16px;
 `
 
-const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed }) => {
+const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cellSize }) => {
     const [grid, setGrid] = useState(setEmptyGrid(numRows, numCols));
     const [running, setRunning] = useState(false);
+
+    // Watches for change to size of grid
+    useEffect(() => {
+        setGrid(setEmptyGrid(numRows, numCols))
+    }, [numRows, numCols])
 
     // MAIN GAME LOGIC TO RUN SIMULATION
     const runSimulation = () => {
@@ -71,7 +76,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed }) =>
 
     return (
         <>
-            <GridDiv repeat={`repeat(${numCols}, 16px)`}>
+            <GridDiv repeat={`repeat(${numCols}, ${cellSize})`}>
                 {grid.map((rows, r) =>
                     rows.map((col, c) => (
                         <Cell
@@ -80,6 +85,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed }) =>
                             setGrid={setGrid}
                             r={r}
                             c={c}
+                            size={cellSize}
                         />
                     ))
                 )}

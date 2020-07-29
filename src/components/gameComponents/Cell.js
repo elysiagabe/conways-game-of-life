@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CellDiv = styled.div`
-    height: 16px;
-    width: 16px;
+    height: ${props => props.size};
+    width: ${props => props.size};
     border: 1px solid black;
     margin-left: -1px;
     margin-bottom: -1px;
@@ -15,7 +15,7 @@ const CellDiv = styled.div`
     }
 `
 
-const Cell = ({grid, setGrid, r, c}) => {
+const Cell = ({grid, setGrid, r, c, size}) => {
     const selectCell = () => {
         let gridCopy = [...grid]
         gridCopy[r][c] = grid[r][c] ? 0 : 1;
@@ -23,8 +23,11 @@ const Cell = ({grid, setGrid, r, c}) => {
     }
 
     return (
-        <CellDiv onClick={selectCell} color={grid[r][c] ? "red" : "white"} >
-        </CellDiv>
+        <CellDiv 
+            onClick={selectCell} 
+            color={grid[r][c] ? "red" : "white"} 
+            size={size}
+        />
     )
 }
 
