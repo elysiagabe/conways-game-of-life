@@ -16,8 +16,6 @@ const CellDiv = styled.div`
 `
 
 const Cell = ({grid, setGrid, r, c}) => {
-    // console.log("Cell props", props)
-
     const selectCell = () => {
         let gridCopy = [...grid]
         gridCopy[r][c] = grid[r][c] ? 0 : 1;

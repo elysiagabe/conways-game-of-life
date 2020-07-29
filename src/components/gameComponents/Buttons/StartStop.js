@@ -6,15 +6,16 @@ const StartStop = ({ running, setRunning, runSimulation }) => {
         setRunning(!running)
     }
 
+    // runs game logic on an interval
     useEffect(() => {
         let interval;
         if(running) {
-            interval = setInterval(runSimulation, 2000)
+            interval = setInterval(runSimulation, 100)
         } else if (!running) {
             clearInterval(interval)
         }
         return () => clearInterval(interval);
-    }, [running])
+    }, [running, runSimulation])
 
 
 
