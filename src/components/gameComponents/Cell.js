@@ -10,7 +10,8 @@ const CellDiv = styled.div`
     background-color: ${props => props.color};
 
     &:hover {
-        background-color: lightskyblue;
+        background-color: red;
+        opacity: 0.5;
     }
 `
 
