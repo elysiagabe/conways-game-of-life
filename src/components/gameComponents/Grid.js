@@ -9,6 +9,7 @@ import StartStop from './Buttons/StartStop';
 import Advance from './Buttons/Advance';
 import Clear from './Buttons/Clear';
 import Random from './gridSeeds/Random';
+import Still from './gridSeeds/Still';
 
 const GridDiv = styled.div`
     justify-content: center;
@@ -107,6 +108,10 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     setGrid={setGrid} 
                     numRows={numRows} 
                     numCols={numCols} 
+                />
+                <Still 
+                    numRows={numRows}
+                    setGrid={setGrid}
                 />
             </div>
         </>
