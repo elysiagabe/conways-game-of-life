@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const StartStop = ({ running, setRunning, runSimulation }) => {
+const StartStop = ({ running, setRunning, runSimulation, intervalSpeed }) => {
 
     const toggleRunning = () => {
         setRunning(!running)
@@ -10,12 +10,12 @@ const StartStop = ({ running, setRunning, runSimulation }) => {
     useEffect(() => {
         let interval;
         if(running) {
-            interval = setInterval(runSimulation, 100)
+            interval = setInterval(runSimulation, intervalSpeed)
         } else if (!running) {
             clearInterval(interval)
         }
         return () => clearInterval(interval);
-    }, [running, runSimulation])
+    }, [running, runSimulation, intervalSpeed])
 
 
 

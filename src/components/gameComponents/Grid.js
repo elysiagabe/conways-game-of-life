@@ -21,7 +21,7 @@ const ButtonsDiv = styled.div`
     margin: 16px;
 `
 
-const Grid = ({ numRows, numCols, generation, setGeneration }) => {
+const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed }) => {
     const [grid, setGrid] = useState(setEmptyGrid(numRows, numCols));
     const [running, setRunning] = useState(false);
 
@@ -85,7 +85,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration }) => {
                 )}
             </GridDiv>
             <ButtonsDiv>
-                <StartStop running={running} setRunning={setRunning} runSimulation={runSimulation} />
+                <StartStop running={running} setRunning={setRunning} runSimulation={runSimulation} intervalSpeed={intervalSpeed} />
                 <Advance runSimulation={runSimulation} />
                 <Clear numRows={numRows} numCols={numCols} setGrid={setGrid} setGeneration={setGeneration} />
             </ButtonsDiv>
