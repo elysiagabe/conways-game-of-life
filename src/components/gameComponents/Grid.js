@@ -8,6 +8,7 @@ import Cell from './Cell';
 import StartStop from './Buttons/StartStop';
 import Advance from './Buttons/Advance';
 import Clear from './Buttons/Clear';
+import Random from './gridSeeds/Random';
 
 const GridDiv = styled.div`
     justify-content: center;
@@ -34,7 +35,6 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
     const runSimulation = () => {
         // clone existing grid to modify
         let newGrid = _.cloneDeep(grid);
-
         // find neighbor count and apply logic accordingly
         for (let r = 0; r < numRows; r++) {
             for (let c = 0; c < numCols; c++) {
@@ -49,16 +49,13 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     _.get(grid, [r, c - 1]),
                     _.get(grid, [r - 1, c - 1])
                 ]
-
                 // find neighborCount (sum of all alive neighbors)
                 let neighborCount = 0;
-
                 neighbors.forEach(n => {
                     if (n !== undefined) {
                         neighborCount += n
                     }
                 })
-
                 // apply game logic
                 if (neighborCount < 2 || neighborCount > 3) {
                     newGrid[r][c] = 0;
@@ -67,7 +64,6 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                 }
             }
         }
-
         // increment generation number
         setGeneration(generation += 1)
         // update grid state to new grid
@@ -91,10 +87,28 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                 )}
             </GridDiv>
             <ButtonsDiv>
-                <StartStop running={running} setRunning={setRunning} runSimulation={runSimulation} intervalSpeed={intervalSpeed} />
+                <StartStop 
+                    running={running} 
+                    setRunning={setRunning} 
+                    runSimulation={runSimulation} 
+                    intervalSpeed={intervalSpeed} 
+                />
                 <Advance runSimulation={runSimulation} />
-                <Clear numRows={numRows} numCols={numCols} setGrid={setGrid} setGeneration={setGeneration} />
+                <Clear 
+                    numRows={numRows} 
+                    numCols={numCols} 
+                    setGrid={setGrid} 
+                    setGeneration={setGeneration} 
+                />
             </ButtonsDiv>
+            <div>
+                <Random 
+                    grid={grid} 
+                    setGrid={setGrid} 
+                    numRows={numRows} 
+                    numCols={numCols} 
+                />
+            </div>
         </>
     )
 }
