@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CellDiv = styled.div`
-    height: 24px;
-    width: 24px;
+    height: 16px;
+    width: 16px;
     border: 1px solid black;
     margin-left: -1px;
     margin-bottom: -1px;

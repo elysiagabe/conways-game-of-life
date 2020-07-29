@@ -6,6 +6,7 @@ import setEmptyGrid from '../../utils/setEmptyGrid';
 // components
 import Cell from './Cell';
 import StartStop from './Buttons/StartStop';
+import Advance from './Buttons/Advance';
 import Clear from './Buttons/Clear';
 
 const GridDiv = styled.div`
@@ -70,7 +71,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration }) => {
 
     return (
         <>
-            <GridDiv repeat={`repeat(${numCols}, 24px)`}>
+            <GridDiv repeat={`repeat(${numCols}, 16px)`}>
                 {grid.map((rows, r) =>
                     rows.map((col, c) => (
                         <Cell
@@ -85,6 +86,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration }) => {
             </GridDiv>
             <ButtonsDiv>
                 <StartStop running={running} setRunning={setRunning} runSimulation={runSimulation} />
+                <Advance runSimulation={runSimulation} />
                 <Clear numRows={numRows} numCols={numCols} setGrid={setGrid} setGeneration={setGeneration} />
             </ButtonsDiv>
         </>
