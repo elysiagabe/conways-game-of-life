@@ -11,6 +11,7 @@ import Clear from './Buttons/Clear';
 import Random from './gridSeeds/Random';
 import Still from './gridSeeds/Still';
 import Glider from './gridSeeds/Glider';
+import Cross from './gridSeeds/Cross';
 
 const GridDiv = styled.div`
     justify-content: center;
@@ -121,6 +122,10 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     setGrid={setGrid}
                 />
                 <Glider 
+                    numRows={numRows}
+                    setGrid={setGrid}
+                />
+                <Cross 
                     numRows={numRows}
                     setGrid={setGrid}
                 />
