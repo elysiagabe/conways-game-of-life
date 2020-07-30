@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;600&display=swap');
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
 
 body {
@@ -9,6 +14,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'MuseoModerno', sans-serif;
+  background-color: #1A0C31;
+  color: #fff;
 }
 
 code {

@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 // components
+import Header from './Header';
 import Grid from './gameComponents/Grid';
 import SizeConfig from './gameComponents/customize/SizeConfig';
 import SpeedConfig from './gameComponents/customize/SpeedConfig';
+
+
+
+const GenCount = styled.h2`
+    font-size: 20px;    
+    font-weight: 400;
+    padding-bottom: 8px;
+`
 
 const GameSimulation = () => {
     const [numRows, setNumRows] = useState(25);
@@ -13,8 +23,8 @@ const GameSimulation = () => {
 
     return (
         <div>
-            <h1>Conway's Game of Life</h1>
-            <h2>Generation: {generation}</h2>
+            <Header />
+            <GenCount>Generation: {generation}</GenCount>
             <Grid 
                 numRows={numRows} 
                 numCols={numCols} 
