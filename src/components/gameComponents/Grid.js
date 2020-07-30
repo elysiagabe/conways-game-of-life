@@ -3,25 +3,17 @@ import styled from 'styled-components';
 import _ from 'lodash';
 // utils
 import setEmptyGrid from '../../utils/setEmptyGrid';
-// import getSeedGrid from '../../utils/getSeedGrid';
 // components
 import Cell from './Cell';
-import StartStop from './Buttons/StartStop';
-import Advance from './Buttons/Advance';
-import Clear from './Buttons/Clear';
+import Controls from './Controls';
 import Random from './gridSeeds/Random';
 import GridSeeds from './gridSeeds/GridSeeds';
+
 
 const GridDiv = styled.div`
     justify-content: center;
     display: grid;
     grid-template-columns: ${props => props.repeat};
-`
-
-const ButtonsDiv = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    margin: 16px;
 `
 
 const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cellSize }) => {
@@ -88,21 +80,16 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     ))
                 )}
             </GridDiv>
-            <ButtonsDiv>
-                <StartStop 
-                    running={running} 
-                    setRunning={setRunning} 
-                    runSimulation={runSimulation} 
-                    intervalSpeed={intervalSpeed} 
-                />
-                <Advance runSimulation={runSimulation} />
-                <Clear 
-                    numRows={numRows} 
-                    numCols={numCols} 
-                    setGrid={setGrid} 
-                    setGeneration={setGeneration} 
-                />
-            </ButtonsDiv>
+            <Controls 
+                running={running} 
+                setRunning={setRunning} 
+                runSimulation={runSimulation} 
+                intervalSpeed={intervalSpeed}
+                numRows={numRows} 
+                numCols={numCols} 
+                setGrid={setGrid} 
+                setGeneration={setGeneration}
+            />
             <div>
                 <Random 
                     grid={grid} 
