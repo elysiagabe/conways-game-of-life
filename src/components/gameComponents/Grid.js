@@ -76,6 +76,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                             r={r}
                             c={c}
                             size={cellSize}
+                            running={running}
                         />
                     ))
                 )}

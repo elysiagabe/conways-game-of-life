@@ -4,15 +4,11 @@ import styled from 'styled-components';
 const CellDiv = styled.div`
     height: ${props => props.size};
     width: ${props => props.size};
-    // border: 1px solid #d3d3d3;
     border-radius: 50%;
-    // margin-left: -1px;
-    // margin-bottom: -1px;
     background-color: ${props => props.color};
 
     &:hover {
-        background-color: red;
-        opacity: 0.5;
+        background-color: ${props => props.hover};
     }
 `
 
@@ -34,11 +30,15 @@ const getRandomColor = (arr) => {
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Cell = ({grid, setGrid, r, c, size}) => {
+const Cell = ({grid, setGrid, r, c, size, running}) => {
     const selectCell = () => {
-        let gridCopy = [...grid]
-        gridCopy[r][c] = grid[r][c] ? 0 : 1;
-        setGrid(gridCopy)
+        if (running) {
+            return 
+        } else {
+            let gridCopy = [...grid]
+            gridCopy[r][c] = grid[r][c] ? 0 : 1;
+            setGrid(gridCopy)
+        }
     }
 
     return (
@@ -46,6 +46,7 @@ const Cell = ({grid, setGrid, r, c, size}) => {
             onClick={selectCell} 
             color={grid[r][c] ? getRandomColor(colors) : "#291D3F"} 
             size={size}
+            hover={running ? "#291D3F" : "#8F0075"}
         />
     )
 }
