@@ -1,8 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
 
-const Random = ({ grid, setGrid, numRows, numCols }) => {
+const Random = ({ grid, setGrid, numRows, numCols, setGeneration }) => {
     const seedRandom = () => {
+        setGeneration(0)
         let randomGrid = _.cloneDeep(grid)
         for (let r=0; r < numRows; r++) {
             for (let c=0; c < numCols; c++) {

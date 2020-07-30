@@ -2,8 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import { stillSmall, stillMed, stillLarge } from '../../../sampleGrid/still';
 
-const Still = ({ numRows, setGrid }) => {
+const Still = ({ numRows, setGrid, setGeneration }) => {
     const seedStill = () => {
+        setGeneration(0)
         if (numRows === 10) {
             setGrid(stillSmall)
         } else if (numRows === 25) {

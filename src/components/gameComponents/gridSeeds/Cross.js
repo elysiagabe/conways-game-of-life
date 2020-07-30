@@ -1,8 +1,9 @@
 import React from 'react';
 import { crossSmall, crossMed, crossLarge } from '../../../sampleGrid/cross';
 
-const Cross = ({ numRows, setGrid }) => {
+const Cross = ({ numRows, setGrid, setGeneration }) => {
     const seedCross = () => {
+        setGeneration(0)
         if (numRows === 10) {
             setGrid(crossSmall)
         } else if (numRows === 25) {

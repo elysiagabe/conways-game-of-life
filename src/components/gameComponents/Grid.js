@@ -12,6 +12,7 @@ import Random from './gridSeeds/Random';
 import Still from './gridSeeds/Still';
 import Glider from './gridSeeds/Glider';
 import Cross from './gridSeeds/Cross';
+import Acorn from './gridSeeds/Acorn';
 
 const GridDiv = styled.div`
     justify-content: center;
@@ -73,11 +74,6 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
         setGrid(newGrid)
     }
 
-    //////// SAVE //////////
-    const save = () => {
-        console.log(grid)
-    }
-
     return (
         <>
             <GridDiv repeat={`repeat(${numCols}, ${cellSize})`}>
@@ -108,7 +104,6 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     setGrid={setGrid} 
                     setGeneration={setGeneration} 
                 />
-                <button onClick={save}>Save</button>
             </ButtonsDiv>
             <div>
                 <Random 
@@ -116,18 +111,27 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     setGrid={setGrid} 
                     numRows={numRows} 
                     numCols={numCols} 
+                    setGeneration={setGeneration}
                 />
                 <Still 
                     numRows={numRows}
                     setGrid={setGrid}
+                    setGeneration={setGeneration}
                 />
                 <Glider 
                     numRows={numRows}
                     setGrid={setGrid}
+                    setGeneration={setGeneration}
                 />
                 <Cross 
                     numRows={numRows}
                     setGrid={setGrid}
+                    setGeneration={setGeneration}
+                />
+                <Acorn 
+                    numRows={numRows}
+                    setGrid={setGrid}
+                    setGeneration={setGeneration}
                 />
             </div>
         </>
