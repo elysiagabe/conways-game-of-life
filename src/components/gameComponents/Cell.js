@@ -5,6 +5,7 @@ const CellDiv = styled.div`
     height: ${props => props.size};
     width: ${props => props.size};
     border: 1px solid black;
+    border-radius: 50%;
     margin-left: -1px;
     margin-bottom: -1px;
     background-color: ${props => props.color};

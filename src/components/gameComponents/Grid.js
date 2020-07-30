@@ -3,16 +3,14 @@ import styled from 'styled-components';
 import _ from 'lodash';
 // utils
 import setEmptyGrid from '../../utils/setEmptyGrid';
+// import getSeedGrid from '../../utils/getSeedGrid';
 // components
 import Cell from './Cell';
 import StartStop from './Buttons/StartStop';
 import Advance from './Buttons/Advance';
 import Clear from './Buttons/Clear';
 import Random from './gridSeeds/Random';
-import Still from './gridSeeds/Still';
-import Glider from './gridSeeds/Glider';
-import Cross from './gridSeeds/Cross';
-import Acorn from './gridSeeds/Acorn';
+import GridSeeds from './gridSeeds/GridSeeds';
 
 const GridDiv = styled.div`
     justify-content: center;
@@ -113,22 +111,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                     numCols={numCols} 
                     setGeneration={setGeneration}
                 />
-                <Still 
-                    numRows={numRows}
-                    setGrid={setGrid}
-                    setGeneration={setGeneration}
-                />
-                <Glider 
-                    numRows={numRows}
-                    setGrid={setGrid}
-                    setGeneration={setGeneration}
-                />
-                <Cross 
-                    numRows={numRows}
-                    setGrid={setGrid}
-                    setGeneration={setGeneration}
-                />
-                <Acorn 
+                <GridSeeds 
                     numRows={numRows}
                     setGrid={setGrid}
                     setGeneration={setGeneration}
