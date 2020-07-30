@@ -5,7 +5,7 @@ const Title = styled.h1`
     font-size: 48px;
     font-weight: 600;
     text-shadow: 2px 2px #FF84E8;
-    margin-top: 56px;
+    margin-top: 40px;
     margin-bottom: 28px;
 `
 

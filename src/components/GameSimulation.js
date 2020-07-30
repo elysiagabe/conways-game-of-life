@@ -6,7 +6,9 @@ import Grid from './gameComponents/Grid';
 import SizeConfig from './gameComponents/customize/SizeConfig';
 import SpeedConfig from './gameComponents/customize/SpeedConfig';
 
-
+const Game = styled.div`
+    margin-bottom: 48px;
+`
 
 const GenCount = styled.h2`
     font-size: 20px;    
@@ -22,7 +24,7 @@ const GameSimulation = () => {
     const [intervalSpeed, setIntervalSpeed] = useState(500);
 
     return (
-        <div>
+        <Game>
             <Header />
             <GenCount>Generation: {generation}</GenCount>
             <Grid 
@@ -34,7 +36,6 @@ const GameSimulation = () => {
                 cellSize={cellSize}
             />
             <div>
-                <h3>Customize Configuration</h3>
                 <SizeConfig 
                     setNumRows={setNumRows}
                     setNumCols={setNumCols}
@@ -45,7 +46,7 @@ const GameSimulation = () => {
                     setIntervalSpeed={setIntervalSpeed} 
                 />
             </div>
-        </div>
+        </Game>
     )
 }
 

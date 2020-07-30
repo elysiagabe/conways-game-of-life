@@ -16,9 +16,29 @@ const GridDiv = styled.div`
     grid-template-columns: ${props => props.repeat};
 `
 
+const SeedDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 600px;
+    margin: 4px auto;
+    padding: 8px 0;
+`
+
+const SeedTitle = styled.h3`
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    margin-right: 20px;
+`
+
 const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cellSize }) => {
     const [grid, setGrid] = useState(setEmptyGrid(numRows, numCols));
     const [running, setRunning] = useState(false);
+    const [hideGrid, setHideGrid] = useState(false);
 
     // Watches for change to size of grid
     useEffect(() => {
@@ -77,6 +97,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                             c={c}
                             size={cellSize}
                             running={running}
+                            hideGrid={hideGrid}
                         />
                     ))
                 )}
@@ -90,21 +111,26 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                 numCols={numCols} 
                 setGrid={setGrid} 
                 setGeneration={setGeneration}
+                hideGrid={hideGrid}
+                setHideGrid={setHideGrid}
             />
-            <div>
-                <Random 
-                    grid={grid} 
-                    setGrid={setGrid} 
-                    numRows={numRows} 
-                    numCols={numCols} 
-                    setGeneration={setGeneration}
-                />
-                <GridSeeds 
-                    numRows={numRows}
-                    setGrid={setGrid}
-                    setGeneration={setGeneration}
-                />
-            </div>
+            <SeedDiv>
+                <SeedTitle>Select Shape</SeedTitle>
+                {/* <div> */}
+                    <Random 
+                        grid={grid} 
+                        setGrid={setGrid} 
+                        numRows={numRows} 
+                        numCols={numCols} 
+                        setGeneration={setGeneration}
+                    />
+                    <GridSeeds 
+                        numRows={numRows}
+                        setGrid={setGrid}
+                        setGeneration={setGeneration}
+                    />
+                {/* </div> */}
+            </SeedDiv>
         </>
     )
 }

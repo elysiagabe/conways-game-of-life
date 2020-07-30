@@ -30,7 +30,15 @@ const getRandomColor = (arr) => {
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Cell = ({grid, setGrid, r, c, size, running}) => {
+const getDeadColor = (hidden) => {
+    if (hidden) {
+        return "#1A0C31"
+    } else {
+        return "#291D3F"
+    }
+}
+
+const Cell = ({grid, setGrid, r, c, size, running, hideGrid}) => {
     const selectCell = () => {
         if (running) {
             return 
@@ -44,7 +52,8 @@ const Cell = ({grid, setGrid, r, c, size, running}) => {
     return (
         <CellDiv 
             onClick={selectCell} 
-            color={grid[r][c] ? getRandomColor(colors) : "#291D3F"} 
+            // color={grid[r][c] ? getRandomColor(colors) : "#291D3F"} 
+            color={grid[r][c] ? getRandomColor(colors) : getDeadColor(hideGrid)} 
             size={size}
             hover={running ? "#291D3F" : "#8F0075"}
         />

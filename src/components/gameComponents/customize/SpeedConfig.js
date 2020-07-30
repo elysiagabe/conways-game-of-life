@@ -1,15 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const style = {width: 600, margin: 50}
+const SpeedDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    margin: 4px auto;
+    padding: 16px 0;
+`
+
+const SpeedTitle = styled.h3`
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    margin-right: 20px;
+`
+
+const style = {width: 400}
 
 const SpeedConfig = ({ intervalSpeed, setIntervalSpeed }) => {
     // const [value, setValue] = useState(500)
 
     const marks = {
         1: 'Fast',
-        2500: 'Slow'
+        1500: 'Slow'
     }
 
     const handleChange = value => {
@@ -17,25 +36,25 @@ const SpeedConfig = ({ intervalSpeed, setIntervalSpeed }) => {
     }
 
     return (
-        <div>
-            Adjust the Speed:
+        <SpeedDiv>
+            <SpeedTitle>Adjust Speed</SpeedTitle>
             <div style={style}>
                 <Slider 
                     onChange={handleChange}
                     value={intervalSpeed}
                     reverse
                     min={1}
-                    max={2500}
-                    railStyle={{ backgroundColor: 'red' }}
+                    max={1500}
+                    railStyle={{ backgroundColor: '#4E007A' }}
                     handleStyle={{
-                        borderColor: 'pink',
-                        backgroundColor: 'pink',
+                        borderColor: '#FFF',
+                        backgroundColor: '#FFF',
                     }}
-                    trackStyle={{ backgroundColor: 'blue' }}
+                    trackStyle={{ backgroundColor: '#4E007A' }}
                     marks={marks}
                 />
             </div>
-        </div>
+        </SpeedDiv>
     )
 }
 

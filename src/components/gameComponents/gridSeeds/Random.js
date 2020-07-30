@@ -1,5 +1,25 @@
 import React from 'react';
 import _ from 'lodash';
+import styled from 'styled-components';
+
+const SeedButton = styled.button`
+    font-family: 'MuseoModerno', sans-serif;
+    font-size: 14px;
+    // font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid #8E00E0;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 8px;
+    background-color: #1A0C31;
+    color: #8E00E0;
+    transition: background-color .2s, color .2s;
+
+    &:hover, &:focus {
+        background-color: #8E00E0;
+        color: #fff;
+    }
+`
 
 const Random = ({ grid, setGrid, numRows, numCols, setGeneration }) => {
     const seedRandom = () => {
@@ -17,7 +37,7 @@ const Random = ({ grid, setGrid, numRows, numCols, setGeneration }) => {
 
     return (
         <div>
-            <button onClick={seedRandom}>Random</button>
+            <SeedButton onClick={seedRandom}>Random</SeedButton>
         </div>
     )
 }
