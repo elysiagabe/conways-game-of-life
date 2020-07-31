@@ -33,7 +33,6 @@ const RadioInput = styled.input`
 const RadioLabel = styled.label`
     font-family: 'MuseoModerno', sans-serif;
     font-size: 14px;
-    // font-weight: 600;
     letter-spacing: 1px;
     border: 1px solid #8E00E0;
     border-radius: 4px;
@@ -46,9 +45,8 @@ const RadioLabel = styled.label`
     &:hover, &:focus {
         background-color: #8E00E0;
         color: #fff;
-}
+    }
 `
-
 
 const SizeConfig = ({ setNumRows, setNumCols, setCellSize }) => {
 

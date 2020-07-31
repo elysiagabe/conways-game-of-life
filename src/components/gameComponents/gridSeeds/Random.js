@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const SeedButton = styled.button`
     font-family: 'MuseoModerno', sans-serif;
     font-size: 14px;
-    // font-weight: 600;
     letter-spacing: 1px;
     border: 1px solid #8E00E0;
     border-radius: 4px;

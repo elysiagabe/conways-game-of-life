@@ -116,7 +116,6 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
             />
             <SeedDiv>
                 <SeedTitle>Select Pattern</SeedTitle>
-                {/* <div> */}
                     <Random 
                         grid={grid} 
                         setGrid={setGrid} 
@@ -129,7 +128,6 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                         setGrid={setGrid}
                         setGeneration={setGeneration}
                     />
-                {/* </div> */}
             </SeedDiv>
         </>
     )

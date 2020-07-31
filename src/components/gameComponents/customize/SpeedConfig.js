@@ -24,7 +24,6 @@ const SpeedTitle = styled.h3`
 const style = {width: 400}
 
 const SpeedConfig = ({ intervalSpeed, setIntervalSpeed }) => {
-    // const [value, setValue] = useState(500)
 
     const marks = {
         1: 'Fast',
