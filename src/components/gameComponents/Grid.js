@@ -115,7 +115,7 @@ const Grid = ({ numRows, numCols, generation, setGeneration, intervalSpeed, cell
                 setHideGrid={setHideGrid}
             />
             <SeedDiv>
-                <SeedTitle>Select Shape</SeedTitle>
+                <SeedTitle>Select Pattern</SeedTitle>
                 {/* <div> */}
                     <Random 
                         grid={grid} 

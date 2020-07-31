@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // components
 import Header from './Header';
@@ -14,6 +15,21 @@ const GenCount = styled.h2`
     font-size: 20px;    
     font-weight: 400;
     padding-bottom: 8px;
+    text-align: center;
+`
+
+const BackLink = styled(Link)`
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 40px;
+    transition: text-decoration .2s;
+    text-align: center;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 const GameSimulation = () => {
@@ -46,6 +62,7 @@ const GameSimulation = () => {
                     setIntervalSpeed={setIntervalSpeed} 
                 />
             </div>
+            <BackLink to="/">&larr; Back to Rules</BackLink>
         </Game>
     )
 }

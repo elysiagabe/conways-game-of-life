@@ -7,6 +7,7 @@ const Title = styled.h1`
     text-shadow: 2px 2px #FF84E8;
     margin-top: 40px;
     margin-bottom: 28px;
+    text-align: center;
 `
 
 const Header = () => {

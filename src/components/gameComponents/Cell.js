@@ -55,7 +55,7 @@ const Cell = ({grid, setGrid, r, c, size, running, hideGrid}) => {
             // color={grid[r][c] ? getRandomColor(colors) : "#291D3F"} 
             color={grid[r][c] ? getRandomColor(colors) : getDeadColor(hideGrid)} 
             size={size}
-            hover={running ? "#291D3F" : "#8F0075"}
+            hover={running ? "#291D3F" : "#FF84E8"}
         />
     )
 }
